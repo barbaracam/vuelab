@@ -6,6 +6,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<style>
 			.container{background:#cecece;}
+            .yellowborder{border:yellow 10px solid;}
 		</style>
 	</head>
 	<body>
@@ -37,11 +38,17 @@
 		ASYNCHRONOUS LEARNING EXERCISE
 			1. Create an image and set the following attributes with Vue {src, alt, title}
 			2. Augment the span below to include another class called "highlight", which has a yellow border.
+
+            <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+                data: {
+                activeColor: 'red',
+                fontSize: 30
+                }
 		-->
-		<span v-bind:class="loadClass" v-bind:class="highlight">
+		<span v-bind:class="loadClass" v-bind:style="{ border: highlight}">
 			look at me!
 		</span>
-        <img v-bind:src="picture" v-bind:alt="cute sunshine" v-bind:title="I love sunshine" />
+        <img v-bind:src="picture" v-bind:alt="Alt" v-bind:title="titlename" />
 	</div>
 	
 	<script>
@@ -50,10 +57,13 @@
 		el: '#app',
 		data:{
 			loadClass : 'container',
-            picture : './images/sunshine.png'
-            
+            //binding the picture, alt and the title
+            picture : './images/sunshine.png',
+            Alt : 'cute sunshine',
+            titlename : 'Sunshine in Canada',
 			//newStyle : 'font-size:30px;',
 			//newAlt : 'dynamically set alt!'
+            highlight : 'yellow 4px solid'
 			
 		}
 	});
