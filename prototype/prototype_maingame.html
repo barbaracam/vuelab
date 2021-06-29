@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+	<head>			
+        <style>
+        #squares{height:700px;display:flex; flex-wrap:wrap;}
+        #tableboard {width:700px;margin:100px auto;border: 8px solid pink;}
+        .squares {width:30%;height:30%;display:flex;justify-content:center;align-items:center;font-size:80px;border-radius:15px;}        
+        /* .squares.marked { color:blue;}    */
+        .squares:nth-child(-n+6){border-bottom: 15px solid purple;}        
+        .squares:nth-child(3n+1),.squares:nth-child(3n+2){border-right: 15px solid purple;}
+        .decor{text-align:center;font-size:78px;font-family:Georgia,'Times New Roman',Times, serif;}
+        .decor1{color:fuchsia;}
+        .decor2{color:turquoise;}  
+        </style>        
+	</head>
+	<body>
+        <div id="app" v-bind:class="title">
+            <span v-bind:class="title1">{{message0}}</span><span v-bind:class="title2">{{message1}}</span>
+        </div>
+
+    <!-- Board Table -->
+        <div id="tableboard">
+            <div id="moves">
+            </div>
+            <div id="squares">
+                <div 
+                v-for="(table, i) in tables"
+                @click="$data.whoturn(i)"                
+                class="squares">
+                {{ table.value }}                    
+                </div>
+            </div>
+        </div>
+        <script src="prototype_3.js" ></script>
+        <script src="prototype_2.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script type="text/javascript">
+
+        var app = new Vue({
+            el: '#app',
+            data:{
+                title : "decor",
+                title1 : "decor1",
+                title2 : "decor2",                
+                message0: 'Humber ',
+                message1: 'Tik Tok Tik Tok'	
+                    }
+                }); 
+           let newboardgame = new tiktok();  
+           let tiktokVue = new Vue({
+               el:'#tableboard',
+               data: newboardgame
+           });  
+    </script>    
+    </body>
+    </html>

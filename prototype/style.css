@@ -1,0 +1,45 @@
+#tableboard {
+    width: 700px;
+    margin: 100px auto;
+    border: 8px solid pink;
+}
+#squares {
+    height: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 35px;   
+}
+.squares {
+    width:33%;
+    height: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-size: 80px;
+    border-radius: 15px;
+    user-select: none;
+    
+
+}
+
+.squares.marked { 
+    color:blue;
+}
+
+.squares:nth-child(-n+6) {
+    border-bottom: 15px solid black;
+}
+
+.squares:nth-child(3n+1),
+.squares:nth-child(3n+2) {
+    border-right: 15px solid black;
+}
+
+
+/* #moves {
+    padding: 15px;
+    font-size: 25px;
+    text-align: center;
+    background-color: pink;
+} */

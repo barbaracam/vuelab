@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+	<head>	
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            .pack{text-align: center;}
+			.questions{font-size: 30px;}
+            .answer{display: flex; justify-content: center;}
+            .answers{flex-direction:row; padding:10px 25px; }
+                   
+		</style>
+	</head>
+	<body>
+        <div id="guessgame">
+            <!-- Question 1 -->
+            <div class="pack">
+                <div class="questions">{{question1}}</div>
+                <div class="answer">
+                    <div><img :src="answers.mozambique" style="width:200px" class="answers"/></div><div><img :src="answers.ghana" style="width:200px" class="answers"/></div><div><img :src="answers.ethopia" style="width:200px" class="answers"/></div>
+                </div>
+            </div>
+            <!-- Question 2 -->
+            <div class="pack">
+                <div class="questions">{{question2}}</div>
+                    <div class="answer">
+                        <div><img :src="answers.paris" style="width:200px" class="answers"/></div><div><img :src="answers.berlin" style="width:200px" class="answers"/></div><div><img :src="answers.amsterdam" style="width:200px" class="answers"/></div>
+                    </div>
+                </div>            
+            <!-- Question 3 --> 
+            <div class="pack">          
+                <div class="questions">{{question3}}</div>
+                <div class="answer">
+                    <div><img :src="answers.bb" style="width:200px" class="answers"/></div><div><img :src="answers.mermaid" style="width:200px" class="answers"/></div><div><img :src="answers.pinocchio" style="width:200px" class="answers"/></div>
+                </div>
+            </div>
+            <!-- Question 4 -->
+            <div class="pack">
+                <div class="questions">{{question4}}</div>
+                <div class="answer">
+                    <div><img :src="answers.jupiter" style="width:200px" class="answers"/></div><div><img :src="answers.venus" style="width:200px" class="answers"/></div><div><img :src="answers.mars" style="width:200px" class="answers"/></div>            
+                </div>            
+            </div>
+
+    <script>
+        var guessgame = new Vue ({
+		el: '#guessgame',
+		data:{
+			question1: 'Which African country was formerly known as Abyssinia? ',
+            question2: 'In which European city would you find Orly airport? ',
+            question3: 'Which Disney film features the song ‘When You Wish Upon a Star’?',
+            question4: 'Which planet is the hottest in the solar system?',            
+            answers: { paris:"../images/paris.jpg",
+                      amsterdam:"../images/amsterdam.jpg",
+                      berlin:"../images/berlin.jpg",
+                      mozambique:"../images/mozambique.jpg",
+                      ethopia:"../images/ethopia.jpg",
+                      ghana:"../images/ghana.jpg",
+                      mermaid:"../images/mermaid.jpg",
+                      pinocchio:"../images/pinocchio.jpg",
+                      bb:"../images/bb.jpg",
+                      jupiter:"../images/jupiter.jpg",
+                      venus:"../images/venus.jpg",
+                      mars:"../images/mars.jpg"
+
+            }
+			
+		},
+		
+	})
+    </script>
+</body>
+</html>

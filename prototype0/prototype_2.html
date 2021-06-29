@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+	<head>	
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            .pack{text-align: center;}
+			.questions{font-size: 30px;}
+            .answer{display: flex; justify-content: center;}
+            .answers{flex-direction:row; padding:10px 25px; width:200px;}
+            .answers_y { height:250px; transition: all .2s;}
+                   
+		</style>
+	</head>
+	<body>
+        <div id="guessgame">
+            <!-- Question 1 -->
+            <div class="pack">
+                <div class="questions">{{question1}}</div>
+                <div class="answer">
+                    <div><img :src="answers.mozambique" class="answers"/></div>
+                    <button>Mozambique</button>
+                    <div><img :src="answers.ghana" class="answers"/></div>
+                    <button>Ghana</button>
+                    <div><img :src="answers.ethopia" v-bind:class="{answers:true, answers_y:correct1}"  /></div>
+                    <button v-on:click="Bigger1();">Ethopia</button>
+                </div>
+            </div>
+            <!-- Question 2 -->
+            <div class="pack">
+                <div class="questions">{{question2}}</div>
+                    <div class="answer">
+                        <div><img :src="answers.paris" v-bind:class="{answers:true, answers_y:correct2}" /></div>
+                        <button v-on:click="Bigger2();">Paris</button>
+                        <div><img :src="answers.berlin" class="answers"/></div>
+                        <button>Berlin</button>
+                        <div><img :src="answers.amsterdam" class="answers"/></div>
+                        <button>Amsterdam</button>
+                    </div>
+                </div>            
+            <!-- Question 3 --> 
+            <div class="pack">          
+                <div class="questions">{{question3}}</div>
+                <div class="answer">
+                    <div><img :src="answers.bb" class="answers"/></div>
+                    <button>Beauty & Beast</button>
+                    <div><img :src="answers.mermaid" class="answers"/></div>
+                    <button>Mermaid</button>
+                    <div><img :src="answers.pinocchio" v-bind:class="{answers:true, answers_y:correct3}" /></div>
+                    <button v-on:click="Bigger3();">Pinocchio</button>
+                </div>
+            </div>
+            <!-- Question 4 -->
+            <div class="pack">
+                <div class="questions">{{question4}}</div>
+                <div class="answer">
+                    <div><img :src="answers.jupiter" class="answers"/></div>
+                    <button>Jupiter</button>
+                    <div><img :src="answers.venus" v-bind:class="{answers:true, answers_y:correct4}" /></div>
+                    <button v-on:click="Bigger4();">Venus</button>
+                    <div><img :src="answers.mars" class="answers"/></div>
+                    <button>Mars</button>            
+                </div>            
+            </div>
+
+    <script>
+        var guessgame = new Vue ({
+		el: '#guessgame',
+		data:{
+            correct1:false,
+            correct2:false,
+            correct3:false,
+            correct4:false,
+			question1: 'Which African country was formerly known as Abyssinia? ',
+            question2: 'In which European city would you find Orly airport? ',
+            question3: 'Which Disney film features the song ‘When You Wish Upon a Star’?',
+            question4: 'Which planet is the hottest in the solar system?',            
+                answers: { 
+                            paris:"../images/paris.jpg",
+                            amsterdam:"../images/amsterdam.jpg",
+                            berlin:"../images/berlin.jpg",
+                            mozambique:"../images/mozambique.jpg",
+                            ethopia:"../images/ethopia.jpg",
+                            ghana:"../images/ghana.jpg",
+                            mermaid:"../images/mermaid.jpg",
+                            pinocchio:"../images/pinocchio.jpg",
+                            bb:"../images/bb.jpg",
+                            jupiter:"../images/jupiter.jpg",
+                            venus:"../images/venus.jpg",
+                            mars:"../images/mars.jpg"
+
+                        }
+			
+		    },
+                methods: {
+			        Bigger1: function(){
+				    this.correct1 = true;
+			        },
+                    Bigger2: function(){
+				    this.correct2 = true;
+			        }, 
+                    Bigger3: function(){
+				    this.correct3 = true;
+			        },
+                    Bigger4: function(){
+				    this.correct4 = true;
+			        }  
+		}
+		
+	})
+    </script>
+</body>
+</html>

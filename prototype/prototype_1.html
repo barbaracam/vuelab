@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<head>	
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+			.decor{text-align:center; font-size:78px; font-family: Georgia, 'Times New Roman', Times, serif;}
+            .decor1{color:red;}
+            .decor2{color:green;}            
+		</style>
+	</head>
+	<body>
+
+        <div id="app" v-bind:class="title">
+            <span v-bind:class="title1">{{message0}}</span><span v-bind:class="title2">{{message1}}</span>
+        </div>
+        
+        <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+                title : "decor",
+                title1 : "decor1",
+                title2 : "decor2",                
+                message0: 'Humber ',
+                message1: 'Tik Tok Tik Tok'	
+            }
+        });   
+	
+	</script>
+	</body>
+</html>
