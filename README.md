@@ -7,4 +7,4 @@ Prototype1 folder is a project was made with the support and help from different
    Variables were changed and some part of the code
    The project is no completly working and finished
    
-   Prototype 0 folder is a progreessive game made all by me. Im still looking the way that the user can see how many points got after getting the right answers
+   Prototype 0 folder is a progressive game made all by me. Im looking for the way that, the user can see how many points per answer. The hardest part it was the first one for the correct answer and hardest was find it the incorrect one. The code should be shorter but still discovery more abut vue and still playong around with the code as today june 29, 2021 
