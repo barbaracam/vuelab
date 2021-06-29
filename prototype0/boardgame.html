@@ -3,68 +3,87 @@
 	<head>	
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <style>
-            body{background-color: tomato;}
+            body{background-color: tomato; margin-top: -2.5em;}
             .pack{text-align: center;}
 			.questions{font-size: 30px;}
-            .answer{display: flex; justify-content: center;}
-            .answers{flex-direction:row; padding:10px 25px; width:200px;}
-            .answers_y { height:250px; transition: all .2s;}
-            .answers_x { display: none;}       
+            .answer{display: flex; justify-content: center; border-radius: 5%;}
+            .boxes { padding: 90px 0;}
+            .answers{flex-direction:row; padding:10px 25px; width:200px; border-radius: 15%; font-weight: bold; color:orange; font-size:20px;}
+            .answers_y { padding: 40px; height:150px; transition: all .2s; font-weight: bold; color:yellow; font-size:20px;}
+            .decor{ background-color: green; text-align:center; font-size:78px; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Geneva, Tahoma, sans-serif; margin: 40px auto;}
+            .decor1{color:red;}
+            .decor2{color:yellow;}
+            .questions {font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 25px; padding: 30px 0;} 
+            button { background-color:green;}
 		</style>
 	</head>
 	<body>
+        <div id="app" v-bind:class="title">
+            <span v-bind:class="title1">{{message0}}</span><span v-bind:class="title2">{{message1}}</span>
+        </div>
+        <!-- Adding Some Style -->
         <!-- Adding False actions to questions!! -->
         <div id="guessgame">
             <!-- Question 1 -->
             <div class="pack">
                 <div class="questions">{{question1}}</div>
                 <div class="answer">
-                    <div><img :src="answers.mozambique" class="answers"/></div>
-                    <div><button v-bind:class="{answers:true, answers_y:false1}" v-on:click="FFalse1();">Mozambique{{message1f}}</button></div>
-                    <div><img :src="answers.ghana" class="answers"/></div>
-                    <div><button v-bind:class="{answers:true, answers_y:false1}" v-on:click="FFalse1();">Ghana{{message1f}}</button></div>
-                    <div><img :src="answers.ethopia" class="answers" /></div>
-                    <div><button v-bind:class="{answers:true, answers_y:correct1}" v-on:click="Bigger1();">{{message1}}</button></div>
+                    <div><img :src="answers.mozambique" class="answers" height="200px"/></div>
+                    <div class="boxes"><button v-bind:class="{answers:true, answers_y:false1}" v-on:click="FFalse1();">Mozambique{{message1f}}</button></div>
+                    <div><img :src="answers.ghana" class="answers" height="200px"/></div>
+                    <div class="boxes"><button v-bind:class="{answers:true, answers_y:false1}" v-on:click="FFalse1();">Ghana{{message1f}}</button></div>
+                    <div><img :src="answers.ethopia" class="answers" height="200px" /></div>
+                    <div class="boxes"><button v-bind:class="{answers:true, answers_y:correct1}" v-on:click="Bigger1();">{{message1}}</button></div>
                 </div>
             </div>
             <!-- Question 2 -->
             <div class="pack">
                 <div class="questions">{{question2}}</div>
                     <div class="answer">
-                        <div><img :src="answers.paris" class="answers" /></div>
-                        <div><button v-bind:class="{answers:true, answers_y:correct2}" v-on:click="Bigger2();">{{message2}}</button></div>
-                        <div><img :src="answers.berlin" class="answers"/></div>
-                        <div><button v-bind:class="{answers:true, answers_y:false2}" v-on:click="FFalse2();" >Berlin {{message2f}}</button></div>
-                        <div><img :src="answers.amsterdam" class="answers"/></div>
-                        <div><button v-bind:class="{answers:true, answers_y:false2}" v-on:click="FFalse2();" >Amsterdam {{message2f}}</button></div>
+                        <div><img :src="answers.paris" class="answers" height="200px" /></div>
+                        <div class="boxes"><button v-bind:class="{answers:true, answers_y:correct2}" v-on:click="Bigger2();">{{message2}}</button></div>
+                        <div><img :src="answers.berlin" class="answers" height="200px"/></div>
+                        <div class="boxes"><button v-bind:class="{answers:true, answers_y:false2}" v-on:click="FFalse2();" >Berlin {{message2f}}</button></div>
+                        <div><img :src="answers.amsterdam" class="answers" height="200px"/></div>
+                        <div class="boxes"><button v-bind:class="{answers:true, answers_y:false2}" v-on:click="FFalse2();" >Amsterdam {{message2f}}</button></div>
                     </div>
                 </div>            
             <!-- Question 3 --> 
             <div class="pack">          
                 <div class="questions">{{question3}}</div>
                 <div class="answer">
-                    <div><img :src="answers.bb" class="answers"/></div>
-                    <div><button v-bind:class="{answers:true, answers_y:false3}" v-on:click="FFalse3();">Beauty & Beast {{message3f}}</button></div>
-                    <div><img :src="answers.mermaid" class="answers"/></div>
-                    <div><button v-bind:class="{answers:true, answers_y:false3}" v-on:click="FFalse3();">Mermaid {{message3f}}</button></div>
-                    <div><img :src="answers.pinocchio" class="answers"/></div>
-                    <div><button v-bind:class="{answers:true, answers_y:correct3}" v-on:click="Bigger3();">{{message3}}</button></div>
+                    <div><img :src="answers.bb" class="answers" height="200px"/></div>
+                    <div class="boxes"><button v-bind:class="{answers:true, answers_y:false3}" v-on:click="FFalse3();">Beauty & Beast {{message3f}}</button></div>
+                    <div><img :src="answers.mermaid" class="answers" height="200px"/></div>
+                    <div class="boxes"><button v-bind:class="{answers:true, answers_y:false3}" v-on:click="FFalse3();">Mermaid {{message3f}}</button></div>
+                    <div><img :src="answers.pinocchio" class="answers" height="200px"/></div>
+                    <div class="boxes"><button v-bind:class="{answers:true, answers_y:correct3}" v-on:click="Bigger3();">{{message3}}</button></div>
                 </div>
             </div>
             <!-- Question 4 -->
             <div class="pack">
                 <div class="questions">{{question4}}</div>
                 <div class="answer">
-                    <div><img :src="answers.jupiter" class="answers"/></div>
-                    <div><button v-bind:class="{answers:true, answers_y:false4}" v-on:click="FFalse4();">Jupiter {{message4f}}</button></div>
-                    <div><img :src="answers.venus" class="answers" /></div>
-                    <div><button v-bind:class="{answers:true, answers_y:correct4}" v-on:click="Bigger4();">{{message4}}</button> </div>
-                    <div><img :src="answers.mars" class="answers"/></div>
-                    <div><button v-bind:class="{answers:true, answers_y:false4}" v-on:click="FFalse4();">Mars {{message4f}}</button></div>            
+                    <div><img :src="answers.jupiter" class="answers" height="200px"/></div>
+                    <div class="boxes"><button v-bind:class="{answers:true, answers_y:false4}" v-on:click="FFalse4();">Jupiter {{message4f}}</button></div>
+                    <div><img :src="answers.venus" class="answers" height="200px"  /></div>
+                    <div class="boxes"><button v-bind:class="{answers:true, answers_y:correct4}" v-on:click="Bigger4();">{{message4}}</button> </div>
+                    <div><img :src="answers.mars" class="answers" height="200px"/></div>
+                    <div class="boxes"><button v-bind:class="{answers:true, answers_y:false4}" v-on:click="FFalse4();">Mars {{message4f}}</button></div>            
                 </div>            
             </div>
 
     <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+                title : "decor",
+                title1 : "decor1",
+                title2 : "decor2",                
+                message0: 'Guess?? ',
+                message1: 'What!!'
+            }
+        });
         var guessgame = new Vue ({
 		el: '#guessgame',
 		data:{
