@@ -19,9 +19,9 @@
                 <div class="questions">{{question1}}</div>
                 <div class="answer">
                     <div><img :src="answers.mozambique" class="answers"/></div>
-                    <div><button>Mozambique</button></div>
+                    <div><button v-bind:class="{answers:true, answers_y:false1}" v-on:click="FFalse1();">Mozambique{{message1f}}</button></div>
                     <div><img :src="answers.ghana" class="answers"/></div>
-                    <div><button>Ghana</button></div>
+                    <div><button v-bind:class="{answers:true, answers_y:false1}" v-on:click="FFalse1();">Ghana{{message1f}}</button></div>
                     <div><img :src="answers.ethopia" class="answers" /></div>
                     <div><button v-bind:class="{answers:true, answers_y:correct1}" v-on:click="Bigger1();">{{message1}}</button></div>
                 </div>
@@ -33,9 +33,9 @@
                         <div><img :src="answers.paris" class="answers" /></div>
                         <div><button v-bind:class="{answers:true, answers_y:correct2}" v-on:click="Bigger2();">{{message2}}</button></div>
                         <div><img :src="answers.berlin" class="answers"/></div>
-                        <div><button>Berlin</button></div>
+                        <div><button v-bind:class="{answers:true, answers_y:false2}" v-on:click="FFalse2();" >Berlin {{message2f}}</button></div>
                         <div><img :src="answers.amsterdam" class="answers"/></div>
-                        <div><button>Amsterdam</button></div>
+                        <div><button v-bind:class="{answers:true, answers_y:false2}" v-on:click="FFalse2();" >Amsterdam {{message2f}}</button></div>
                     </div>
                 </div>            
             <!-- Question 3 --> 
@@ -71,7 +71,11 @@
             correct2:false,
             correct3:false,
             correct4:false,
-            message1 : ' Ethopia',            
+            message1 : ' Ethopia',
+            message1f : "",  
+            message2f : "", 
+            message3f : "",  
+            message4f : "",      
             message2 : ' Paris',
             message3 : 'Pinocchio',
             message4 : 'Venus',
@@ -99,46 +103,88 @@
 		    },
                 methods: {
                 ///Question 1
+
+                //Correct
                 Bigger1 : function(){				
                     if(this.correct1){
-                        this.correct1=false;
-                        this.message1 ='Ethopia'; 
+                        this.correct1=false;                         
                     }else{
                         this.correct1=true;
-                        this.message1= 'Correct Answer'; 
+                        this.message1= 'Ethopia is the Correct Answer'; 
+                    }
+			    },
+
+                //False                
+                FFalse1 : function(){				
+                    if(this.false1){
+                        this.false1=false;  
+                                                               
+                    }else{
+                        this.false1=true;
+                        this.message1f= ' is a False Answer'; 
                     }
 			    },
                 ///Question 2
+                //Correct
                 Bigger2 : function(){				
                     if(this.correct2){
-                        this.correct2=false;
-                        this.message2 = 'Paris'; 
+                        this.correct2 = false;                         
                     }else{
                         this.correct2=true;
-                        this.message2= 'Correct Answer'; 
+                        this.message2= 'Paris is the Correct Answer'; 
+                    }
+			    },
+                //False
+                FFalse2 : function(){				
+                    if(this.false2){
+                        this.false2 =false;                                                                    
+                    }else{
+                        this.false2 =true;
+                        this.message2f= ' is a False Answer'; 
                     }
 			    },
                 ///Question 3
+                //Correct
                 Bigger3 : function(){				
                     if(this.correct3){
-                        this.correct3=false;
-                        this.message3 = 'Pinocchio'; 
+                        this.correct3=false;                        
                     }else{
                         this.correct3=true;
-                        this.message3= 'Correct Answer'; 
+                        this.message3= 'Pinocchio is the Correct Answer'; 
+                    }
+			    },
+                ///False
+                FFalse3 : function(){				
+                    if(this.false3){
+                        this.false3 = false;                                           
+                    }else{
+                        this.false3 = true;
+                        this.message3f= ' is a False Answer'; 
                     }
 			    },
                 
                  ///Question 4
+
+                 //Correct
                  Bigger4 : function(){				
                     if(this.correct4){
-                        this.correct4 = false;
-                        this.message4 ='Pinocchio'; 
+                        this.correct4 = false;                         
                     }else{
                         this.correct4 = true;
-                        this.message4 = 'Correct Answer'; 
+                        this.message4 = 'Venus is the Correct Answer'; 
                     }
-			    }
+			    },
+
+                //False
+
+                FFalse4 : function(){				
+                    if(this.false4){
+                        this.false4 = false;                                           
+                    }else{
+                        this.false4 = true;
+                        this.message4f= ' is a False Answer'; 
+                    }
+			    },
 
 		}
 		
