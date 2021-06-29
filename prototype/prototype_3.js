@@ -1,21 +1,27 @@
+    // This project was made with the support and help from   
+    // Souce: https://www.youtube.com/watch?v=rqb4FgVNrrM
+    // https://www.youtube.com/watch?v=0ShYlN-H-ak
+    // https://www.youtube.com/watch?v=R78cMs75P7E&t=523s
+    // Variables were changed and some part of the code
+    // The project is no completly working and finished
+
 
     // <!-- The X and O Game -->
-
     class tiktok {
         constructor() {
-            // Tik tok started and havent ended   (progress)
+            // Tik tok started and havent ended
             this.started = true;
 
-            // Who is the next 0 or X, but the rules in tik tok implies O being the first one (currentturn)
+            // Who is the next 0 or X, but the rules in tik tok implies O being the first one
             this.next = tiktok.player1;
 
-            //Number of move made (movemade)
+            //Number of move made 
             this.turn = 0;
 
-            //Who won?  (winner)
+            //Who won?
             this.win = null;
             
-            //square            
+            //square on the board          
             this.tables = new Array(9).fill().map( t => new Table() );
         }
 
@@ -45,16 +51,20 @@
                     [2,4,6]
                 ];
 
+                // Calling winning combinations, the board knows when to stop 
                 winning.forEach((winn) => {
-                    const [a,b,c] = winn;
+                    const [a,b,c] = winn; //separating the array in 3
                     const tbA = this.tables[a];
                     const tbB = this.tables[b];
                     const tbC = this.tables[c];
 
                     if(tbA.value && tbA.value === tbB.value && tbA.value === tbC.value){
-                        this.started = false;
-                        this.win = tbA.value;
-                        this.marked = tbB.marked = tbC.marked = true;
+                        this.started = false; //game finished
+                        this.win = tbA.value; 
+                        // this.marked = tbB.marked = tbC.marked = true;
+
+                        
+                        //Missing the fuction in case nobody wins
                 }
 
             });

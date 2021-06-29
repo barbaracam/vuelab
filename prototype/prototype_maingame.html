@@ -1,3 +1,11 @@
+<!-- // This project was made with the support and help from   
+// Souce: https://www.youtube.com/watch?v=rqb4FgVNrrM
+// https://www.youtube.com/watch?v=0ShYlN-H-ak
+// https://www.youtube.com/watch?v=R78cMs75P7E&t=523s
+// Variables were changed and some part of the code
+// The project is no completly working and finished -->
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>			
@@ -5,8 +13,7 @@
         #squares{height:700px;display:flex; flex-wrap:wrap;}
         #tableboard {width:700px;margin:100px auto;border: 8px solid pink;}
         .squares {width:30%;height:30%;display:flex;justify-content:center;align-items:center;font-size:80px;border-radius:15px;}        
-        /* .squares.marked { color:blue;}    */
-        .squares:nth-child(-n+6){border-bottom: 15px solid purple;}        
+         .squares:nth-child(-n+6){border-bottom: 15px solid purple;}        
         .squares:nth-child(3n+1),.squares:nth-child(3n+2){border-right: 15px solid purple;}
         .decor{text-align:center;font-size:78px;font-family:Georgia,'Times New Roman',Times, serif;}
         .decor1{color:fuchsia;}
@@ -23,9 +30,11 @@
             <div id="moves">
             </div>
             <div id="squares">
+                <!-- Using a loop to repeat the squares from the table board, using same template -->
+                <!-- Accesing the whoturn() in order to switch between turns -->
                 <div 
                 v-for="(table, i) in tables"
-                @click="$data.whoturn(i)"                
+                @click="$data.whoturn(i)"                                
                 class="squares">
                 {{ table.value }}                    
                 </div>
@@ -46,10 +55,14 @@
                 message1: 'Tik Tok Tik Tok'	
                     }
                 }); 
-           let newboardgame = new tiktok();  
+
+            //calling the class from prototype_3
+           let newboardgame = new tiktok();
+
+           //Creating new object, new Vue 
            let tiktokVue = new Vue({
-               el:'#tableboard',
-               data: newboardgame
+               el:'#tableboard', //Id tableboard from html
+               data: newboardgame //object being called 
            });  
     </script>    
     </body>
